@@ -1,0 +1,210 @@
+<html>
+<head>
+	<title>
+		Summary
+	</title>
+	
+<style>
+.page {
+	position: absolute;
+    top: 5%;
+    left: 15%;
+        
+    height: 600px;
+    width: 1200px;
+    padding: 75px;
+    border-radius: 25px;
+    border-top: 75px  grey solid;
+    border-right: solid;
+    border-bottom: solid;
+    border-left: solid;
+    font-size: 25px;
+}
+div h2{
+    text-align: center;
+    margin-top: -115px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 20px;
+}
+
+.subDiv {
+	position: absolute;
+    top: 5%;
+    left: 5%;
+        
+    height: 300px;
+    width: 1100px;
+    padding: 50px;
+    border-radius: 25px;
+    border-top: solid;
+    border-right: solid;
+    border-bottom: solid;
+    border-left: solid;
+    font-size: 25px;
+}
+
+button {
+    border-radius: 25px; font-size: large;
+    width: 7cm;
+    height: 2cm;
+    background-color: white;
+    cursor: pointer;
+} 
+	 
+.divInfo { 
+			display:none;
+		 }
+
+ul {
+    margin: 0.75em 0;
+    padding: 0 1em;
+    list-style: none;}
+	
+
+li:before { 
+    content: "";
+    border-color: transparent #111;
+    border-style: solid;
+    border-width: 0.35em 0 0.35em 0.45em;
+    display: block;
+    height: 0;
+    width: 0;
+    left: -1em;
+    top: 0.9em;
+    position: relative;
+	-webkit-transition:all 0.15s linear;
+	-moz-transition:all 0.15s linear;
+	-o-transition:all 0.15s linear;
+	transition:all 0.15s linear;
+	}
+
+
+ul li div{
+	height:0px;	/*	You could use negative positioning too	*/
+	opacity:0;
+	transition:all .3s ease-in-out ease-in-out;
+	-webkit-transition:all .3s ease-in-out;
+	-moz-transition:all .3s ease-in-out;
+	-o-transition:all .3s ease-in-out;
+	transition:all .3s ease-in-out;
+	}
+	
+	
+ ul li:hover div{
+	height:20px;
+	opacity:1;
+	}
+	
+	
+ul li:hover:before{
+	-webkit-transform:rotate(90deg); 
+	-moz-transform:rotate(90deg);
+	-o-transform:rotate(90deg); 
+	transform:rotate(90deg);
+	} 
+
+a{
+	text-decoration: none;
+}
+</style>
+
+<script type="text/javascript">
+
+function ToggleList(IDS) {
+  HideRange('ulist','div',IDS);  // not required unless using 'HideRange()' below
+  var CState = document.getElementById(IDS);
+  if (CState.style.display != "block") { CState.style.display = "block"; }
+                                  else { CState.style.display = "none"; }
+}
+function HideRange(sect,elTag,IDS) {
+  var ContentObj = document.getElementById(sect);
+  var AllContentDivs = ContentObj.getElementsByTagName(elTag);
+  for (i=0; i<AllContentDivs.length; i++) {
+    if (IDS != AllContentDivs[i].id) { AllContentDivs[i].style.display="none"; }
+  }
+}
+function closeWindow()
+{
+	/* window.open('../WebContent/Page 7.html', '_self', '');
+	window.close(); */
+
+	/* var customWindow = window.open('../WebContent/Page 7.html', '_self', '');
+    customWindow.close(); */
+    
+	open('../WebContent/Page 7.html', '_self').close();
+    return false;
+}
+</script>
+
+
+
+</head>
+
+<body>
+
+<div class="page"><h2 style="font-size: xx-large;">Score Card</h2>
+<br><br><br>
+<div class="subDiv">
+
+<ul id="ulist">
+<li><a href="#" onclick="ToggleList('a')">Quantitative Section </a></li>
+    <div id="a" class="divInfo">
+		<br>Number of Questions Answered: 2<br><br>
+		Number of Correct Answers: <span id="quan"></span><br><br>
+		Score: <span id="quanPercent"></span><br>
+	</div>
+<li><a href="#" onclick="ToggleList('b')">Reading Section </a></li>
+    <div id="b" class="divInfo">
+		<br>Number of Questions Answered: 1<br><br>
+		Number of Correct Answers: <span id="read"></span><br><br>
+		Score: <span id="readPercent"></span><br>
+	</div>
+<li><a href="#" onclick="ToggleList('c')">Audio/Video Section</a></li>
+    <div id="c" class="divInfo">
+		<br>Number of Questions Answered: 1<br><br>
+		Number of Correct Answers: <span id="av"></span><br><br>
+		Score: <span id="avPercent"></span><br>
+	</div>
+</ul>
+
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<span style="font-size: xx-large; position: absolute; padding-left: 40%" >THANK YOU !!</span>
+
+<br><br><br>
+<div style="padding-left: 38%">
+<table style="width: 100%">
+	<tr style="width: 100%">
+		<td style="width: 30%">
+			<button onclick=" return closeWindow()">Finish</button>
+		</td>
+	</tr>
+</table>
+</div>
+</div>
+
+<script type="text/javascript">
+
+	var quan = getURLParameter('quan');
+	var read = getURLParameter('read');
+	var av = getURLParameter('av');
+	
+	document.getElementById('quan').innerHTML = quan;
+	document.getElementById('read').innerHTML = read;
+	document.getElementById('av').innerHTML = av;
+	
+	document.getElementById('quanPercent').innerHTML = (Number(quan)/2)*100;
+	document.getElementById('readPercent').innerHTML = Number(read)*100;
+	document.getElementById('avPercent').innerHTML = Number(av)*100;
+  
+function getURLParameter(name) {
+	  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+}
+
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<head>
+	<title>
+		Question-3
+	</title>
+<style>
+
+.page {
+
+	position: absolute;
+    top: 5%;
+    left: 18%;
+        
+    height: 750px;
+    width: 1200px;
+    padding: 25px;
+    border-radius: 25px;
+    border-top: 75px  grey solid;
+    border-right: solid;
+    border-bottom: solid;
+    border-left: solid;
+    
+}
+div h2{
+    text-align: center;
+    margin-top: -70px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 15px;
+}
+
+button {
+    border-radius: 25px; font-size: large;
+    width: 7cm;
+    height: 2cm;
+    background-color: white;
+    cursor: pointer;
+} 
+
+.radioSize {
+	width: 1.5em; height: 1.5em
+}
+</style>
+
+
+<script type="text/javascript">
+
+function preventBack(){window.history.forward();}
+setTimeout("preventBack()", 0);
+window.onunload=function(){null};
+
+function Redirect() {
+	
+	var answerA = document.getElementsByName("qn3a");
+	var selected1 = "0", selected2 = "0";
+	for (var i = 0, length = answerA.length; i < length; i++) {
+	    if (answerA[i].checked) {
+	        selected1 = answerA[i].value;
+	        break;
+	    }
+	}
+	
+	var answerB = document.getElementsByName("qn3b");
+	for (var i = 0, length = answerB.length; i < length; i++) {
+	    if (answerB[i].checked) {
+	        selected2 = answerB[i].value;
+	        break;
+	    }
+	}
+	
+	if(selected1 == "1" && selected2 == "1")
+		var read=1;
+	else
+		var read=0;
+	
+
+	window.location="Page 5.html?quan="+getURLParameter('quan')+"&read="+read;
+	return false;
+  }
+  
+function getURLParameter(name) {
+	  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="page"><h2 style="font-size: xx-large;">Question 3</h2>
+
+<table style="font-size: x-large; width: 100%; height: 100%; padding-left: 50px;">
+	<tr>
+		<td colspan="2" width="60%">
+		As per the latest twitter news, complete the article snippet given by selecting appropriate choices for the blanks
+		</td>
+		<td rowspan="4">
+		"Twitter wants more cash. The company announced two $ <span id="blank1">___________</span> million debt offerings in a filling today,
+		each with a potential $100 increase provided that the sales are oversubscribed. Assuming full tip, including the $100 million
+		boosters, <span id="blank2">___________</span> will raise upto $1.5 billion with the two offerings."<br><br>
+		Source: http://techcrunch.com/2014/09/10/twitter-to-raise-up-to-1-5-billioning-offering-in-debt-offering/
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<input class="radioSize" type="radio" id="qn31" name="qn3a" value="0" onclick="document.getElementById('blank1').innerHTML='<u> 650 </u>';">
+				<label for="qn31">
+					Option 1 Mark 1: $650
+				</label>
+		</td>
+		<td>
+			<input class="radioSize" type="radio" id="qn32" name="qn3b" value="1" onclick="document.getElementById('blank2').innerHTML='<u> Twitter </u>';">
+				<label for="qn32">
+					Option 1 Mark 2: Twitter
+				</label>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<input class="radioSize" type="radio" id="qn33" name="qn3a" value="1" onclick="document.getElementById('blank1').innerHTML='<u> 550 </u>';">
+				<label for="qn33">
+					Option 2 Mark 1: $550
+				</label>
+		</td>
+		<td>
+		<input class="radioSize" type="radio" id="qn34" name="qn3b" value="0" onclick="document.getElementById('blank2').innerHTML='<u> Google </u>';">
+				<label for="qn34">
+					Option 2 Mark 2: Google
+				</label>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<input class="radioSize" type="radio" id="qn35" name="qn3a" value="0" onclick="document.getElementById('blank1').innerHTML='<u> 750 </u>';">
+				<label for="qn35">
+					Option 3 Mark 1: $750
+				</label>
+		</td>
+		<td>
+		<input class="radioSize" type="radio" id="qn36" name="qn3b" value="0" onclick="document.getElementById('blank2').innerHTML='<u> Facebook </u>';">
+				<label for="qn36">
+					Option 3 Mark 2: Facebook
+				</label>
+		</td>
+	</tr>
+
+<tr><td><button onclick="return Redirect()">Submit & Next Question</button></td><td><button onclick="clearRadio()">Cancel & Clear Selection</button></td></tr>
+</table>
+
+</div>
+
+<script type="text/javascript">
+function clearRadio(){
+	document.getElementById("qn31").checked = false;
+	document.getElementById("qn32").checked = false;
+	document.getElementById("qn33").checked = false;
+	document.getElementById("qn34").checked = false;
+	document.getElementById("qn35").checked = false;
+	document.getElementById("qn36").checked = false;
+	document.getElementById('blank1').innerHTML="___________";
+	document.getElementById('blank2').innerHTML="___________";
+}
+</script>
+
+</body>
+
+</html>

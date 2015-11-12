@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<head>
+	<title>
+		Login-Page
+	</title>
+	
+	  <script type="text/javascript">
+	  
+	  function preventBack(){window.history.forward();}
+	  setTimeout("preventBack()", 0);
+	  window.onunload=function(){null};
+	  
+	  	form = document.getElementById("login");
+
+            function Redirect() {
+          	  user = document.getElementById("user").value;
+        	  pass = document.getElementById("pass").value;
+        	  
+               if(user == "Deenash" && pass == "Deenash")
+            	{
+            	   //alert("user: "+user+" pass: "+pass);
+            	   window.location="Page 2.html";
+            	   return false;
+            	}
+            }
+         
+      </script>
+	
+	<style>
+div{
+	padding-top: 15%;
+	padding-left: 30%;
+	font-size: x-large;
+}
+table {
+    border-collapse: separate;
+    font-size: x-large;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+}
+td, th {
+    border:none;
+}
+
+th {
+	border:none;
+	font-size: x-large;
+	border-radius: 25px;
+    -moz-border-radius: 25px;
+    background-color: #cccccc;
+}
+#myDIV {
+    padding:25px;
+    background-color: #cccccc;	
+    background-clip:padding-box;
+}
+
+button {
+    border-radius: 25px; font-size: large;
+    width: 3cm;
+} 
+#titleRow {
+    display: inline-block;
+    border-radius: 25px;
+    background-color: #cccccc;
+    color: #cccccc;
+    border: 5px solid white;
+} 
+
+</style>
+
+</head>
+
+<body>
+
+<div>
+<h3><u>Log-in Page</u></h3>
+<form id = "login">
+
+<Table border="1" style="width: 600px;">
+
+<tr>
+<th align="center" >User Login</th>
+</tr>
+
+<tr>
+<td align="center">
+<table>
+
+<tr><td>Username: </td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input id="user" name="user" type="text"></td></tr>
+<tr><td>Password: </td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input id="pass" name="pass" type="password"></td></tr>
+<tr><td colspan="3"><span style="font-style: italic; color:red">Create Account / Forgot?</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="return Redirect()">Login</button></td></tr>
+
+</table>
+</td>
+</tr>
+
+</Table>
+</form>
+</div>
+
+
+
+</body>
+
+</html>

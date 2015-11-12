@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<head>
+	<title>
+		Survey
+	</title>
+	
+<style>
+
+.page {
+
+	position: absolute;
+    top: 5%;
+    left: 18%;
+        
+    height: 600px;
+    width: 1200px;
+    padding: 75px;
+    border-radius: 25px;
+    border-top: 75px  grey solid;
+    border-right: solid;
+    border-bottom: solid;
+    border-left: solid;
+    font-size: 25px;
+}
+div h2{
+    text-align: center;
+    margin-top: -115px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 20px;
+}
+
+button {
+    border-radius: 25px; font-size: large;
+    width: 7cm;
+    height: 2cm;
+    background-color: white;
+    cursor: pointer;
+} 
+
+textarea, select {
+	position: absolute;
+}
+
+</style>
+
+<script type="text/javascript">
+
+function preventBack(){window.history.forward();}
+setTimeout("preventBack()", 0);
+window.onunload=function(){null};
+
+function Redirect() {
+	window.location="Page 7.html?quan="+getURLParameter('quan')+"&read="+getURLParameter('read')+"&av="+getURLParameter('av');
+	return false;
+  }
+  
+function getURLParameter(name) {
+	  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="page"><h2 style="font-size: xx-large;">Survey</h2>
+
+
+<br><br>
+How did you like the Center?<br><br><br>
+Comments: &nbsp;&nbsp;&nbsp; <textarea id="comments" cols="90" rows="7" style="font-size: x-large;"></textarea>
+<br><br><br><br><br><br><br>
+Select Text Area Location:<br><br><br>
+
+
+<table style="width: 100%">
+	<tr>
+		<td width="40%">
+			city: &nbsp; &nbsp; 
+			<select name="city" id="city" style="font-size: 20px;" onmousedown="if(this.options.length>6){this.size=6;}"  onchange='this.size=1;' onblur="this.size=1;">
+			<option value="">- Please select a city -</option>
+			</select>
+			
+		</td>
+		<td>
+			Room Number #: &nbsp;&nbsp;
+			<select name="roomNo" id="roomNo" style="font-size: 20px;" onmousedown="if(this.options.length>6){this.size=6;}"  onchange='this.size=1;' onblur="this.size=1;">
+			<option value="">- Please select a Room # -</option>
+			</select>
+		</td>
+	</tr>
+</table>
+<br><br><br>
+<table style="width: 100%">
+	<tr style="width: 100%">
+		<td style="width: 30%">
+			<button onclick="return Redirect()">Submit & Next Question</button>
+		</td>
+		<td>
+			<button onclick="clearRadio()">Cancel & Clear Selection</button>
+		</td>
+	</tr>
+</table>
+
+
+
+</div>
+
+<script type="text/javascript">
+var selectCity = document.getElementById("city");
+var cityList = ["San Jose", "San Francisco", "Santa Clara", "San Diego", "Sacramento", "Los Angeles", "Fremont", "Union City", "Santa Barbara"];
+for(var i = 0; i < cityList.length; i++) {
+    var opt = cityList[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    selectCity.appendChild(el);
+}
+
+var selectRoom = document.getElementById("roomNo");
+var roomList = ["Room 300", "Room 300", "Room 3222", "Room 265", "Room 582", "Room 126", "Room 321", "Room 263", "Room 365"];
+for(var i = 0; i < roomList.length; i++) {
+    var opt = roomList[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    selectRoom.appendChild(el);
+}
+</script>
+
+<script type="text/javascript">
+function clearRadio(){
+	document.getElementById("city").value = "";
+	document.getElementById("comments").value = "";
+	document.getElementById("roomNo").value = "";
+}
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<head>
+	<title>
+		Question-1
+	</title>
+	
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script type="text/javascript">
+
+function preventBack(){window.history.forward();}
+setTimeout("preventBack()", 0);
+window.onunload=function(){null};
+
+function Redirect() {
+	
+	var answer = document.getElementsByName("qn1");
+	var selected = "0";
+	for (var i = 0, length = answer.length; i < length; i++) {
+	    if (answer[i].checked) {
+	        selected = answer[i].value;
+	        break;
+	    }
+	}
+	  window.location="Page 3.html?quan="+selected;
+  	  return false;
+  }
+</script>
+<style>
+.page {
+
+	position: absolute;
+    top: 5%;
+    left: 18%;
+        
+    height: 750px;
+    width: 1200px;
+    padding: 25px;
+    border-radius: 25px;
+    border-top: 75px  grey solid;
+    border-right: solid;
+    border-bottom: solid;
+    border-left: solid;
+    
+}
+div h2{
+    text-align: center;
+    margin-top: -70px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 15px;
+}
+
+button {
+    border-radius: 25px; font-size: large;
+    width: 7cm;
+    height: 2cm;
+    background-color: white;
+    cursor: pointer;
+} 
+
+.radioSize {
+	width: 1.5em; height: 1.5em
+}
+
+</style>
+
+</head>
+
+<body onload = "drawSlope();">
+
+<div class="page"><h2 style="font-size: xx-large;">Question 1</h2>
+
+<table style="font-size: x-large; width: 100%; height: 100%; padding-left: 50px;">
+	<tr><td colspan="3">Given Points (x1,y1) and (x2,y2). Select the formula to find the equation of the given line. </td></tr>
+	
+	<tr>
+		<td width="30%">
+			<input class="radioSize" type="radio" id="qn11" name="qn1" value="0">
+				<label for="qn11">y = mx + b</label>
+		</td>
+		<td  width="30%">
+			<input class="radioSize" type="radio" id="qn12" name="qn1" value="0">
+				<label for="qn12">(x-h)<sup>2</sup>+(y-k)<sup>2</sup>=r<sup>2</sup></label>
+		</td>
+		<td rowspan="3" style="vertical-align:middle;"><div id="start"></div></td>
+	</tr>
+	
+	<tr>
+		<td>
+			<input class="radioSize" type="radio" id="qn13" name="qn1" value="0">
+				<label for="qn13">y-y<sub>1</sub>=m(x-x<sub>1</sub>)</label>
+		</td>
+		<td>
+		<input class="radioSize" type="radio" id="qn14" name="qn1" value="1">
+			<label for="qn14">
+			        <math>
+			  <mrow>
+			            <msub>
+			              <mi>y-y</mi>
+			              <mn>2</mn>
+			            </msub>
+			
+			    <mo>=</mo>
+			    <mfrac>
+			      <mrow>
+			
+			        <msub>
+			              <mi>y</mi>
+			              <mn>2</mn>
+			        </msub>
+				      <mo>&#x2212;</mo>
+			        <msub>
+			              <mi>y</mi>
+			              <mn>1</mn>
+			        </msub>
+			
+			      </mrow>
+			      <mrow>
+			                <msub>
+			              <mi>x</mi>
+			              <mn>2</mn>
+			        </msub>
+				      <mo>&#x2212;</mo>
+			        <msub>
+			              <mi>x</mi>
+			              <mn>1</mn>
+			        </msub>
+			
+			      </mrow>
+			    </mfrac>
+			<mrow>
+			           <mo>(</mo>
+			            <msub>
+			              <mi>x-x</mi>
+			              <mn>2</mn>
+			            </msub>
+			           <mo>)</mo>
+			</mrow>
+			  </mrow>
+			</math>
+		</label>
+	</td></tr>
+<tr><td><button onclick="return Redirect()">Submit & Next Question</button></td><td><button onclick="clearRadio()">Cancel & Clear Selection</button></td></tr>
+</table>
+
+</div>
+
+</body>
+
+<script>
+function drawSlope()
+{
+	var point = document.getElementById("start").getBoundingClientRect()
+	
+	var bla = "";
+    var Aleft=250,Atop=250;
+	var Ax=point.left, Bx=point.left+200, Ay=point.top, By=point.top-200;
+	var lineLength = Math.sqrt( (Ax-Bx)*(Ax-Bx)+(Ay-By)*(Ay-By) );
+	//alert(lineLength);
+	for( var i=0; i<lineLength; i++ )
+	{
+		if(i==Math.round(lineLength/3))
+        {
+            Aleft =  Math.round( Ax+(Bx-Ax)*i/lineLength  ) ;
+            Atop= Math.round( Ay+(By-Ay)*i/lineLength  );
+            bla += "<span style='position:absolute;left:"+ Math.round( Ax+(Bx-Ax)*i/lineLength  ) +"px;top:"+ Math.round( Ay+(By-Ay)*i/lineLength  ) +"px;width:2px;height:2px;background:red;border: 2px solid red;'></span>";
+        }
+        if(i==Math.round(lineLength*3/4))
+        {
+            Bleft =  Math.round( Ax+(Bx-Ax)*i/lineLength  ) ;
+            Btop= Math.round( Ay+(By-Ay)*i/lineLength  );
+            bla += "<span style='position:absolute;left:"+ Math.round( Ax+(Bx-Ax)*i/lineLength  ) +"px;top:"+ Math.round( Ay+(By-Ay)*i/lineLength  ) +"px;width:2px;height:2px;background:red;border: 2px solid red;'></span>";
+        }
+        else{
+	  	bla += "<span style='position:absolute;left:"+ Math.round( Ax+(Bx-Ax)*i/lineLength  ) +"px;top:"+ Math.round( Ay+(By-Ay)*i/lineLength  ) +"px;width:2px;height:2px;background:#000'></span>";
+      }
+	}
+	//   Drawing horizontal Line
+    for( var i=0; i<lineLength; i++ )
+    {
+        bla += "<span style='position:absolute;left:"+ (Ax) +"px;top:"+ (Ay-i) +"px;width:2px;height:2px;background:#000'></span>";
+    }
+    //   Drawing vertical Line
+    for( var i=0; i<lineLength; i++ )
+    {
+        bla += "<span style='position:absolute;left:"+ (Ax+i) +"px;top:"+ (Ay) +"px;width:2px;height:2px;background:#000'></span>";
+    }
+     bla += "<span style='position:absolute;left:"+ Aleft+"px;top:"+ Atop +"px;width:2px;height:2px;background:#000'>(x1,y1)</span>";
+     bla += "<span style='position:absolute;left:"+ Bleft+"px;top:"+ Btop +"px;width:2px;height:2px;background:#000'>(x2,y2)</span>";
+
+	document.body.innerHTML += bla;
+
+}
+
+function clearRadio(){
+	document.getElementById("qn11").checked = false;
+	document.getElementById("qn12").checked = false;
+	document.getElementById("qn13").checked = false;
+	document.getElementById("qn14").checked = false;
+}
+
+</script>
+
+</html>
